@@ -36,13 +36,63 @@
  *   and how to use it in JS. You will also need to download a sound bite
  */
 
+ 
 (function(){
 
   //jQuery equivelent to window.onload = function{}
   //code in here wont run until page loads
   $(function(){
+    //team 1shot taken
+    const teamOneNumShots = $("#teamone-numshots");
+    //team 1 goal
+    const teamOneNumHits = $("#teamone-numhits");
+    //team 1 Shoot
+    const teamOneShoot = $("#teamone-shoot");
+
+    //team 2 shot taken
+    const teamTwoNumShots = $("#teamtwo-numshots");
+    //team 2 goal
+    const teamTwoNumHits = $("#teamtwo-numhits");
+    //team 2 shoot
+    const teamTwoShoot = $("#teamtwo-shoot");
+
+    const teamOneShootButton = $("#teamone-shoot");
+    const teamTwoShootButton = $("#teamtwo-shoot");
+    const resetButton = $("#reset");
+    const numResets   = $("#num-resets");
+
+    //link to the game
+    //onclick
+    teamOneShootButton.click(function () { 
+   
+      teamOneNumShots.html(parseInt(teamOneNumShots.html()) + 1);
+
+      if(Math.random() > .5){
+        teamOneNumHits.html(parseInt(teamOneNumHits.html()) + 1);
+        $("body").css("background-color", "red");
+      }
+     });
+
+    teamTwoShootButton.click(function () {
+
+      teamTwoNumShots.html(parseInt(teamTwoNumShots.html()) + 1);
+
+      if (Math.random() > .5) {
+        teamTwoNumHits.html(parseInt(teamTwoNumHits.html()) + 1);
+        $("body").css("background-color", "green");
+      }
+    });
 
 
+    resetButton.click(function () {
+
+      numResets.html(parseInt(numResets.html()) + 1);
+      teamTwoNumShots.html(0);
+      teamTwoNumHits.html(0);
+      teamOneNumShots.html(0);
+      teamOneNumHits.html(0);
+      $("body").css("background-color", "white");
+     });
 
   })
 
